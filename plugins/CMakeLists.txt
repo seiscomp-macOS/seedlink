@@ -6,7 +6,8 @@ SET(
 		chain_plugin
 )
 
-IF ( NOT MACOSX )
+# macOS: Enable plugins since they compile fine
+#IF ( NOT MACOSX )
 	SET(
 		_DIR_LIST 
 			${_DIR_LIST}
@@ -28,7 +29,7 @@ IF ( NOT MACOSX )
 			wave24_plugin
 			win_plugin
 	) 
-ENDIF ( NOT MACOSX )
+#ENDIF ( NOT MACOSX )
 
 IF (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/../../common)
 	SET(_DIR_LIST ${_DIR_LIST} gdrt_plugin)
