@@ -55,4 +55,8 @@
 #define  ERR_TOOBIG        1    /* retreived msg too large for buffer     */
 #define  ERR_NOTRACK       2    /* msg retreived; tracking limit exceeded */
 
+#ifdef __APPLE__
+#define	MSG_CONFIRM		   0x800 /* MSG_CONFIRM flag from Linux socket.h does not exist on macOS or FreeBSD */
+#endif
+
 #endif /* __PROJECT_H__ */
