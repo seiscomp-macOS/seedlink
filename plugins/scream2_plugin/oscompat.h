@@ -47,6 +47,10 @@
 #include <endian.h>
 #elif defined (__sun)
 #include <sys/int_types.h>
+#elif defined (__APPLE__)
+#ifndef __LITTLE_ENDIAN
+#define __LITTLE_ENDIAN 1
+#endif
 #elif defined (WIN32)
 #if 0
 #include <basetsd.h>
