@@ -656,12 +656,17 @@ Stream logs = make_stream(SystemLog());
 
 }
 
+#ifdef __APPLE__
+template<>
+RegisteredModule<Proto>* RegisteredModule<Proto>::registered = NULL;
+#else
 namespace PluginModule {
 
 template<>
 RegisteredModule<Proto>* RegisteredModule<Proto>::registered = NULL;
 
 }
+#endif
 
 //*****************************************************************************
 // Main
