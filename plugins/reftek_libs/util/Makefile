@@ -11,8 +11,15 @@ OBJS   += timer.o
 OBJS   += timefunc.o
 
 CC = gcc
-CFLAGS = -O2
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+    # On macOS disable implicit function declaration - C99 and later don't support implicit function declaration
+	CFLAGS = -O2 -Wno-implicit-function-declaration
+else
+    CFLAGS = -O2
+endif
+	
 all: libutil.a
 
 .PHONY: all clean
