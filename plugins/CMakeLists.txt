@@ -7,29 +7,28 @@ SET(
 )
 
 # macOS: Enable plugins since they compile fine
-#IF ( NOT MACOSX )
-	SET(
-		_DIR_LIST 
-			${_DIR_LIST}
-			caps_plugin
-			echopro_plugin
-			ewexport_plugin
-			ewexport_pasv_plugin
-			fs_plugin
-			minilogger_plugin
-			mseedscan_plugin
-			naqsplugin
-			optodas_plugin
-			q330plugin
-			reftek_plugin
-			scream_plugin
-			scream2_plugin
-			serial_plugin
-			sockplugin
-			wave24_plugin
-			win_plugin
-	) 
-#ENDIF ( NOT MACOSX )
+SET(
+    _DIR_LIST 
+        ${_DIR_LIST}
+        caps_plugin
+        echopro_plugin
+        ewexport_plugin
+        ewexport_pasv_plugin
+        fs_plugin
+        minilogger_plugin
+        mseedscan_plugin
+        naqsplugin
+        optodas_plugin
+        q330plugin
+        reftek_plugin
+        scream_plugin
+        scream2_plugin
+        serial_plugin
+        sockplugin
+        wave24_plugin
+        win_plugin
+) 
+
 
 IF (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/../../common)
 	SET(_DIR_LIST ${_DIR_LIST} gdrt_plugin)
