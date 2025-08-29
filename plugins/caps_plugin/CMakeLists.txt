@@ -29,11 +29,15 @@ ADD_EXECUTABLE(caps_plugin ${CAPSPLUGIN_SOURCES})
 
 FIND_PACKAGE(OpenSSL REQUIRED)
 
+# Since Boost 1.70.0, the system library is considered a header-only library when using C++11 or later,
+# so skip searching for "Boost COMPONENTS system" (will leave Boost_system_LIBRARY to empty)
+# to avoid error with Boost 1.89+ => Boost_System_NOTFOUND
 IF(APPLE)
     INCLUDE_DIRECTORIES(${OPENSSL_INCLUDE_DIR})
+    FIND_PACKAGE(Boost REQUIRED COMPONENTS program_options)
+ELSE()
+    FIND_PACKAGE(Boost REQUIRED COMPONENTS system program_options)
 ENDIF(APPLE)
-
-FIND_PACKAGE(Boost REQUIRED COMPONENTS system program_options)
 
 TARGET_LINK_LIBRARIES(
 	caps_plugin
